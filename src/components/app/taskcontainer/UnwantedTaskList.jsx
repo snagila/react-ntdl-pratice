@@ -2,7 +2,7 @@ import React from "react";
 
 const UnwantedTaskList = ({ handleOnDelete, switchTask, formData }) => {
   const unwantedEntries = formData.filter((item) => item.type === "unwanted");
-
+  console.log(unwantedEntries);
   return (
     <>
       <div className="col border p-4 rounded">
@@ -10,7 +10,7 @@ const UnwantedTaskList = ({ handleOnDelete, switchTask, formData }) => {
         <div className="px-4" style={{ height: "40vh", overFlowY: "auto" }}>
           <table className="table table-hover border">
             <tbody id="taskListelement">
-              {unwantedEntries.map((item, i) => {
+              {unwantedEntries.map((item, i) => (
                 <tr key={i}>
                   <td>{i + 1}</td>
                   <td>{item.taskName}</td>
@@ -29,9 +29,8 @@ const UnwantedTaskList = ({ handleOnDelete, switchTask, formData }) => {
                       <i className="fa-solid fa-trash"></i>
                     </button>
                   </td>
-                </tr>;
-                console.log(unwantedEntries);
-              })}
+                </tr>
+              ))}
             </tbody>
           </table>
         </div>

@@ -12,6 +12,7 @@ const TaskContainer = () => {
     if (window.confirm("Do you want to delete the task?")) {
       setFormData(formData.filter((item) => item.id !== id));
     }
+    yarn;
   };
 
   const switchTask = (id, type) => {
@@ -34,9 +35,9 @@ const TaskContainer = () => {
             switchTask={switchTask}
           />
           <UnwantedTaskList
+            formData={formData}
             handleOnDelete={handleOnDelete}
             switchTask={switchTask}
-            formData={formData}
           />
         </div>
         <TimeDisplay />
