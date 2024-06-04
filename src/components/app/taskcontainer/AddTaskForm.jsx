@@ -17,7 +17,7 @@ const AddTaskForm = ({ setFormData, formData }) => {
     e.preventDefault();
     const obj = {
       ...form,
-      type: "entry",
+      type: "taskList",
       id: randomIDGenerator(),
     };
     if (ttlHr + obj.taskTime > ttHrPerWk) {
