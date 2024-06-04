@@ -1,6 +1,6 @@
 import React from "react";
 
-const TaskList = ({ formData }) => {
+const TaskList = ({ formData, handleOnDelete }) => {
   const entries = formData.filter((item) => item.type === "entry");
   return (
     <>
@@ -15,7 +15,10 @@ const TaskList = ({ formData }) => {
                   <td>{item.taskName}</td>
                   <td>{item.taskTime}</td>
                   <td className="text-end">
-                    <button className="btn btn-danger btn-sm">
+                    <button
+                      className="btn btn-danger btn-sm"
+                      onClick={() => handleOnDelete(item.id)}
+                    >
                       <i className="fa-solid fa-trash"></i>
                     </button>
                     <button className="btn btn-success btn-sm">

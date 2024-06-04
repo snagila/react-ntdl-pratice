@@ -1,6 +1,6 @@
 import React from "react";
 
-const UnwantedTaskList = () => {
+const UnwantedTaskList = ({ handleOnDelete }) => {
   return (
     <>
       <div className="col border p-4 rounded">
@@ -16,7 +16,10 @@ const UnwantedTaskList = () => {
                   <button className="btn btn-warning btn-sm">
                     <i className="fa-sharp fa-solid fa-arrow-left-long"></i>
                   </button>
-                  <button className="btn btn-danger btn-sm">
+                  <button
+                    className="btn btn-danger btn-sm"
+                    onClick={() => handleOnDelete(item.id)}
+                  >
                     <i className="fa-solid fa-trash"></i>
                   </button>
                 </td>

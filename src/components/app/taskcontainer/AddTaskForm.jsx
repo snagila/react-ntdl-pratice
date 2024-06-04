@@ -3,7 +3,10 @@ import { randomIDGenerator } from "../../../utility/randomIdGenerator";
 
 const AddTaskForm = ({ setFormData, formData }) => {
   const [form, setForm] = useState({});
-  const ttlHr = 24 * 7;
+  const ttHrPerWk = 24 * 7;
+  const ttlHr = formData.reduce((acc, item) => {
+    return acc + item.taskTime;
+  }, 0);
 
   const handleOnChange = (e) => {
     const { name, value } = e.target;
@@ -17,10 +20,9 @@ const AddTaskForm = ({ setFormData, formData }) => {
       type: "entry",
       id: randomIDGenerator(),
     };
-    // if (ttlHr + obj.taskTime > ttHrPerWk) {
-    //   return alert("sorry Boss not enough hours left to fit this task");
-    // } else setFormData([...formData, obj]);
-    setFormData([...formData, obj]);
+    if (ttlHr + obj.taskTime > ttHrPerWk) {
+      return alert("sorry Boss not enough hours left to fit this task");
+    } else setFormData([...formData, obj]);
   };
 
   return (
