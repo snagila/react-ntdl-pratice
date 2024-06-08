@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-
 import TaskList from "./TaskList";
 import TimeDisplay from "./TimeDisplay";
 import UnwantedTaskList from "./UnwantedTaskList";
@@ -10,9 +9,9 @@ const TaskContainer = () => {
 
   const handleOnDelete = (id) => {
     if (window.confirm("Do you want to delete the task?")) {
-      setFormData(formData.filter((item) => item.id !== id));
+      const upDatedList = formData.filter((item) => item.id !== id);
+      setFormData(upDatedList);
     }
-    yarn;
   };
 
   const switchTask = (id, type) => {
@@ -20,7 +19,6 @@ const TaskContainer = () => {
       if (item.id === id) item.type = type;
       return item;
     });
-    console.log(tempArray);
     setFormData(tempArray);
   };
 
